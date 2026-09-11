@@ -1,6 +1,6 @@
 # seshforge
 
-Lock-free **Telethon** client: forge a **StringSession** from Telegram Desktop **tdata** or a `.session` file, then use the full MTProto API without SQLite locks.
+Lock-free **session forge** for Telegram: **Telethon** + **Pyrogram** + Desktop **tdata**, with a Telethon `Client` that keeps the full messaging API.
 
 [Get started](quickstart.md){ .md-button .md-button--primary }
 [API reference](api.md){ .md-button }
@@ -12,17 +12,19 @@ Lock-free **Telethon** client: forge a **StringSession** from Telegram Desktop *
 | Pain | Fix |
 |------|-----|
 | `database is locked` under workers | runtime is always in-memory `StringSession` |
-| auth lives in Desktop **tdata** | auto-convert via opentele |
-| `.session` files don't travel well | export once to a portable string |
+| auth in Desktop **tdata** | convert via opentele |
+| Telethon ↔ Pyrogram formats | pack/unpack + factories |
+| `.session` files don't travel | export to portable strings |
 
 Companion for phone login: [tg-session](https://github.com/xvDoshik/tg-session).
 
 ## Features
 
 - **Lock-free** - no shared SQLite in production paths
-- **tdata / `.session` / string** - one factory entrypoint
+- **Full convert matrix** - tdata / Telethon / Pyrogram file & string
 - **Full Telethon** - `Client` subclasses `TelegramClient`
-- **CLI + library** - forge strings or keep a live client
+- **Pyrogram factory** - `open_pyrogram(...)` for Pyrogram method style
+- **CLI + library** - forge, convert, export
 
 ```python
 from seshforge import Client

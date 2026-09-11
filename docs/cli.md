@@ -4,12 +4,26 @@
 python -m seshforge --help
 ```
 
-| Flag | Required | Description |
-|------|----------|-------------|
-| `--tdata PATH` | one of | Telegram Desktop `tdata` directory |
-| `--session PATH` | one of | Telethon `.session` file |
-| `--string STR` | one of | existing StringSession |
-| `--account N` | no | tdata account index (default `0`) |
+## Inputs (exactly one)
+
+| Flag | Description |
+|------|-------------|
+| `--tdata PATH` | Telegram Desktop `tdata` directory |
+| `--session PATH` | Telethon `.session` file |
+| `--string STR` | Telethon StringSession |
+| `--pyrogram-session PATH` | Pyrogram `.session` SQLite |
+| `--pyrogram-string STR` | Pyrogram session string |
+
+## Options / exports
+
+| Flag | Description |
+|------|-------------|
+| `--account N` | tdata account index (default `0`) |
+| `--qr` | `CreateNewSession` instead of `UseCurrentSession` |
+| `--to-tdata OUT` | write Desktop tdata |
+| `--to-session OUT` | write Telethon `.session` |
+| `--to-pyrogram-session OUT` | write Pyrogram `.session` |
+| `--to-pyrogram-string` | also print Pyrogram session string |
 
 ## Output
 
@@ -21,11 +35,7 @@ SESSION_STRING=
 1BVtsO...
 ```
 
-Nothing is written to disk unless you redirect stdout yourself.
-
 ## Env
-
-Loaded from `.env` next to the project (or process env):
 
 | Variable | Default |
 |----------|---------|

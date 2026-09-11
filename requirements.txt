@@ -3,3 +3,4 @@ python-dotenv>=1.0.0
 opentele>=1.15.1
 tgcrypto>=1.2.5
 PyQt5>=5.15.0
+pyrogram>=2.0.0

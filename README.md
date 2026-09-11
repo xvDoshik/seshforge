@@ -6,7 +6,7 @@ EN | [RU](docs/README_RU.md) · [Docs site](https://xvdoshik.github.io/seshforge
 ![Telethon](https://img.shields.io/badge/Telethon-0088CC?style=flat-square&logo=telegram&logoColor=white)
 ![Docs](https://img.shields.io/badge/docs-GitHub%20Pages-222?style=flat-square)
 
-Forge a **Telethon StringSession** from Telegram Desktop **tdata** or a `.session` file, then run the full Telethon API without SQLite locks.
+Forge a **Telethon StringSession** from Telegram Desktop **tdata**, Telethon/Pyrogram `.session` or session strings, then run the full Telethon API without SQLite locks. Pyrogram formats and `open_pyrogram(...)` are included for Pyrogram-style clients.
 
 Phone login only? Use [tg-session](https://github.com/xvDoshik/tg-session).
 
@@ -14,8 +14,9 @@ Phone login only? Use [tg-session](https://github.com/xvDoshik/tg-session).
 
 ```
 seshforge/
-├── seshforge/       # Client + converters
+├── seshforge/       # Client + convert + desktop + pyro
 ├── docs/            # MkDocs (EN/RU)
+├── tests/
 ├── mkdocs.yml
 ├── requirements.txt
 └── .env.example
@@ -26,9 +27,10 @@ seshforge/
 ## ✨ Features
 
 - **Lock-free runtime** 🔓 - always `StringSession` in memory, no `database is locked`.
-- **tdata in** 🖥️ - Telegram Desktop / AyuGram / Kotatogram via opentele.
-- **`.session` in** 💾 - one-shot SQLite read, then drop the file handle.
+- **tdata in/out** 🖥️ - Telegram Desktop / AyuGram / Kotatogram via opentele.
+- **Telethon + Pyrogram** 🔄 - file/string convert matrix both ways.
 - **Full MTProto API** 📡 - `Client` subclasses Telethon `TelegramClient`.
+- **Pyrogram factory** 🐍 - `open_pyrogram(...)` when you want Pyrogram methods.
 - **One factory** 🏭 - `Client.create(...)` with exactly one source.
 
 ---
@@ -52,6 +54,8 @@ cp .env.example .env
 python -m seshforge --tdata "~/Library/Application Support/Telegram Desktop/tdata"
 python -m seshforge --session ./acc.session
 python -m seshforge --string '1...'
+python -m seshforge --pyrogram-string '...'
+python -m seshforge --session ./acc.session --to-pyrogram-session ./pyro.session
 ```
 
 ### Library
@@ -74,9 +78,12 @@ Full guide: [docs site](https://xvdoshik.github.io/seshforge/) · [API](docs/api
 | Command | What it does |
 |---------|----------------|
 | `python -m seshforge --tdata PATH` | tdata → StringSession |
-| `python -m seshforge --session PATH` | `.session` → StringSession |
+| `python -m seshforge --session PATH` | Telethon `.session` → string |
 | `python -m seshforge --string STR` | verify / reprint string |
-| `--account N` | account index inside tdata |
+| `python -m seshforge --pyrogram-session PATH` | Pyrogram file → string |
+| `python -m seshforge --pyrogram-string STR` | Pyrogram string → Telethon runtime |
+| `--to-tdata` / `--to-session` / `--to-pyrogram-session` | export |
+| `--account N` / `--qr` | tdata index / CreateNewSession |
 
 ---
 

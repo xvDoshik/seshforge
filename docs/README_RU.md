@@ -5,7 +5,7 @@
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
 ![Telethon](https://img.shields.io/badge/Telethon-0088CC?style=flat-square&logo=telegram&logoColor=white)
 
-Собирает **Telethon StringSession** из **tdata** или `.session`, дальше полный Telethon API без SQLite lock.
+Собирает **Telethon StringSession** из **tdata**, Telethon/Pyrogram `.session` и строк; полный Telethon API без SQLite lock. Есть `open_pyrogram` для Pyrogram-клиента.
 
 Логин по номеру: [tg-session](https://github.com/xvDoshik/tg-session).
 
@@ -17,7 +17,7 @@
 
 - **Без lock** 🔓 - в рантайме только `StringSession`.
 - **tdata** 🖥️ - Desktop / AyuGram / Kotatogram.
-- **`.session`** 💾 - один раз прочитали SQLite и забыли.
+- **Telethon + Pyrogram** 🔄 - конвертация форматов.
 - **Полный MTProto** 📡 - `Client` = наследник Telethon.
 - **Один вход** 🏭 - `Client.create(...)` с одним источником.
 
@@ -36,6 +36,7 @@ cp .env.example .env
 
 ```bash
 python -m seshforge --tdata "~/Library/Application Support/Telegram Desktop/tdata"
+python -m seshforge --pyrogram-session ./acc.session --to-session ./tl.session
 ```
 
 ```python

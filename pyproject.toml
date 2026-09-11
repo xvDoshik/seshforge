@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "seshforge"
-version = "0.1.0"
-description = "Lock-free Telethon client: tdata / .session / StringSession with full MTProto API"
+version = "0.2.0"
+description = "Lock-free session forge: Telethon + Pyrogram + Desktop tdata, full Telethon Client API"
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
@@ -16,8 +16,9 @@ dependencies = [
   "opentele>=1.15.1",
   "tgcrypto>=1.2.5",
   "PyQt5>=5.15.0",
+  "pyrogram>=2.0.0",
 ]
-keywords = ["telegram", "telethon", "tdata", "stringsession", "mtproto"]
+keywords = ["telegram", "telethon", "pyrogram", "tdata", "stringsession", "mtproto"]
 classifiers = [
   "Programming Language :: Python :: 3",
   "License :: OSI Approved :: MIT License",

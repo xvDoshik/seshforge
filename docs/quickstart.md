@@ -31,6 +31,13 @@ cp .env.example .env
     python -m seshforge --string '1...'
     ```
 
+=== "pyrogram"
+
+    ```bash
+    python -m seshforge --pyrogram-session ./acc.session
+    python -m seshforge --session ./acc.session --to-pyrogram-session ./pyro.session
+    ```
+
 Copy `SESSION_STRING` from stdout into your secret store.
 
 ## Use as a library
