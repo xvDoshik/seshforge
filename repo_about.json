@@ -1,9 +1,10 @@
 {
-  "description": "Lock-free Telethon: forge StringSession from tdata/.session, full MTProto API",
+  "description": "Lock-free session forge: Telethon + Pyrogram + Desktop tdata, full Telethon Client API",
   "homepage": "https://xvdoshik.github.io/seshforge/",
   "topics": [
     "telegram",
     "telethon",
+    "pyrogram",
     "tdata",
     "stringsession",
     "mtproto",
