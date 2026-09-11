@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "seshforge"
+version = "0.1.0"
+description = "Lock-free Telethon client: tdata / .session / StringSession with full MTProto API"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "xvDoshik" }]
+dependencies = [
+  "telethon>=1.36.0",
+  "python-dotenv>=1.0.0",
+  "opentele>=1.15.1",
+  "tgcrypto>=1.2.5",
+  "PyQt5>=5.15.0",
+]
+keywords = ["telegram", "telethon", "tdata", "stringsession", "mtproto"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Topic :: Communications :: Chat",
+]
+
+[project.urls]
+Homepage = "https://dosha.pw"
+Repository = "https://github.com/xvDoshik/seshforge"
+
+[project.scripts]
+seshforge = "seshforge.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["seshforge*"]
